@@ -14,7 +14,7 @@ $.ajaxPrefilter(function (options) {
   // 无论成功或者失败都会调用
   options.complete = function (res) {
     console.log(res);
-    if (res.responseJSON.status === 1 || res.responseJSON.message === '身份认证失败！') {
+    if (res.responseJSON.status === 1 && res.responseJSON.message === '身份认证失败！') {
       // 1.清除本地存储的tolken
       localStorage.removeItem('token')
       // 2.跳转到登陆页面
